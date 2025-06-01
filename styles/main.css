@@ -205,16 +205,16 @@ main {
 }
 
 .hero-headline .frases {
-    font-size: 0.6em; /* Relativo al 2em del padre (hero-headline) */
-    color: var(--color-primary-purple); /* Cambiado a un púrpura más oscuro para contraste */
+    font-size: 0.6em; 
+    color: var(--color-primary-purple); 
     text-transform: capitalize;
-    display: block; /* Para asegurar que ocupe su propia línea si es necesario */
+    display: block; 
 }
 
 .hero-headline .frases_small {
-    font-size: 0.4em; /* Relativo al 2em del padre (hero-headline) */
+    font-size: 0.4em; 
     text-transform: capitalize;
-    display: block; /* Para asegurar que ocupe su propia línea si es necesario */
+    display: block; 
 }
 
 .hero-image {
@@ -274,25 +274,77 @@ main {
     font-size: 2em; /* Tamaño del icono para móvil */
 }
 
-/* --- ESTILOS PARA SECCIONES PLACEHOLDER --- */
-/* Elimina el estilo 'main section' genérico y usa esta clase */
-.placeholder-section {
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    font-size: 1.8em;
-    font-weight: bold;
-    /* Añade colores para diferenciarlas si aún las usas como placeholders */
-}
+
 
 /* Colores para tus placeholders temporales */
 .placeholder-section:nth-of-type(1) { background-color: var(--color-light-gray); } /* Equipos */
 .placeholder-section:nth-of-type(2) { background-color: var(--color-secondary-purple); color: var(--color-white);} /* Activar */
 .placeholder-section:nth-of-type(3) { background-color: var(--color-primary-purple); color: var(--color-white);} /* Contacto */
+/* --- Estilos para la Sección "Equipos" (Mobile-First) --- */
+.teams-section {
+    background-color: var(--color-light-gray); /* Un fondo gris claro para esta sección */
+    color: var(--color-dark-gray);
+    padding: 60px 0;
+    text-align: center;
+}
 
+.teams-grid {
+    display: flex;
+    flex-direction: column; /* Apila las tarjetas verticalmente en móvil */
+    gap: 30px; /* Espacio entre las tarjetas */
+    align-items: center; /* Centra las tarjetas si su ancho es menor que el contenedor */
+}
+
+.team-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 350px; /* Limita el ancho de cada tarjeta en móvil */
+    width: 100%; /* Asegura que la tarjeta use todo el ancho disponible hasta max-width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido dentro de la tarjeta */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+}
+
+.team-image {
+    width: 150px; /* Tamaño fijo para la imagen del equipo en móvil */
+    height: 150px;
+    border-radius: 50%; /* Imágenes circulares */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    margin-bottom: 15px;
+    border: 3px solid var(--color-secondary-purple); /* Borde alrededor de la imagen */
+}
+
+.team-name {
+    font-size: 1.6em;
+    color: var(--color-primary-purple);
+    margin-bottom: 10px;
+}
+
+.team-project-description {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify; /* Justifica el texto de la descripción del proyecto */
+}
+
+.pavia-interaction {
+    font-size: 0.9em;
+    color: var(--color-dark-gray);
+    background-color: var(--color-light-purple);
+    border-radius: 5px;
+    padding: 10px 15px;
+    line-height: 1.4;
+    font-weight: bold;
+    text-align: center; /* Centra el texto de interacción */
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+}
+
+.pavia-interaction strong {
+    color: var(--color-primary-purple); /* Color más fuerte para la interacción */
+}
 
 /* --- Estilos para el FOOTER (Mobile-First) --- */
 .main-footer {
@@ -493,6 +545,51 @@ main {
         font-size: 2.2em; /* Iconos más grandes en desktop */
         margin: 40px 0;
     }
+
+
+    .teams-section {
+        padding: 80px 0;
+    }
+
+    .teams-grid {
+        flex-direction: row;
+        flex-wrap: wrap; 
+         align-items: stretch;
+        justify-content: center; 
+        gap: 40px; 
+    }
+
+    .team-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start
+        flex: 1 1 calc(33.33% - 40px); 
+        max-width: 380px; 
+        padding: 30px;
+    }
+
+    .team-image {
+        width: 180px; 
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .team-name {
+        font-size: 1.8em;
+    }
+
+    .team-project-description {
+        font-size: 1em; 
+        flex-grow: 1;
+         margin-bottom: 20px;
+    }
+
+    .pavia-interaction {
+        font-size: 0.95em;
+         margin-top: auto;
+         width: 100%;
+    }
+
 
     /* Estilos del FOOTER para Escritorio */
     .main-footer {
