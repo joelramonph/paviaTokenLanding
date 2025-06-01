@@ -276,10 +276,6 @@ main {
 
 
 
-
-
-
-.placeholder-section:nth-of-type(3) { background-color: var(--color-primary-purple); color: var(--color-white);} /* Contacto */
 /* --- Estilos para la Sección "Equipos" (Mobile-First) --- */
 .teams-section {
     background-color: var(--color-light-gray); /* Un fondo gris claro para esta sección */
@@ -467,6 +463,215 @@ main {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px dashed var(--color-light-purple); /* Separador para la nota */
+}
+
+
+/* --- Estilos para la Sección "Soporte y FAQ" (Mobile-First) --- */
+.support-section {
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-gray);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.support-intro {
+    margin-bottom: 40px;
+    font-size: 1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-container {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 40px; /* Espacio antes de las otras secciones de soporte */
+}
+
+.faq-container h3 {
+    font-size: 1.8em;
+    color: var(--color-primary-purple);
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-light-purple);
+    padding: 15px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none; /* No hay borde en el último item */
+}
+
+.faq-question {
+    background-color: transparent;
+    color: var(--color-dark-gray);
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--color-secondary-purple);
+}
+
+.faq-arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-arrow {
+    transform: rotate(180deg); /* Rota la flecha cuando la pregunta está activa */
+}
+
+.faq-answer {
+    max-height: 0; /* Por defecto oculto */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Transición suave */
+    padding: 0 10px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.faq-answer p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Cuando la respuesta está abierta */
+.faq-answer.open {
+    max-height: 200px; /* Altura máxima aproximada, ajustar si el contenido es más largo */
+    padding: 10px 10px 20px;
+}
+
+.faq-answer a {
+    color: var(--color-primary-purple);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.auto-config-button {
+    background-color: var(--color-secondary-purple);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    display: inline-block; /* Para que no ocupe todo el ancho */
+}
+
+.auto-config-button:hover {
+    background-color: var(--color-primary-purple);
+}
+
+.faq-cta {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.link-button {
+    background-color: var(--color-primary-purple);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.link-button:hover {
+    background-color: var(--color-secondary-purple);
+    transform: translateY(-2px);
+}
+
+.whatsapp-button {
+    background-color: #25d366; /* Color de WhatsApp */
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851;
+}
+
+/* Otras Secciones de Soporte */
+.divider {
+    border: none;
+    border-top: 2px dashed var(--color-light-purple);
+    margin: 50px auto;
+    width: 80%;
+}
+
+.support-contact-sections {
+    display: flex;
+    flex-direction: column; /* Apilados en móvil */
+    gap: 30px;
+}
+
+.whatsapp-support,
+.on-site-support {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left; /* Alinea el texto a la izquierda en estas secciones */
+}
+
+.whatsapp-support h3,
+.on-site-support h3 {
+    font-size: 1.6em;
+    color: var(--color-primary-purple);
+    margin-bottom: 15px;
+    text-align: center; /* Centra los títulos */
+}
+
+.whatsapp-support p,
+.on-site-support p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.whatsapp-benefits {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.whatsapp-benefits li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.whatsapp-link {
+    text-align: center; /* Centra el botón de WhatsApp */
+    margin-top: 20px;
+}
+
+.ambassador-info {
+    font-style: italic;
+    color: var(--color-secondary-purple);
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 /* --- Estilos para el FOOTER (Mobile-First) --- */
@@ -715,7 +920,7 @@ main {
     }
 
 
-    /* Estilos de la Sección "Activar Pavia Token" para Escritorio */
+    
     /* Estilos de la Sección "Activar Pavia Token" para Escritorio */
     .roadmap-section {
         padding: 80px 0;
@@ -838,6 +1043,51 @@ main {
 
     .phase-tip {
         font-size: 0.9em;
+    }
+
+.support-section {
+        padding: 80px 0;
+    }
+
+    .faq-container {
+        padding: 40px;
+        max-width: 800px; /* Ancho máximo para el contenedor FAQ */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .faq-container h3 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .faq-question {
+        font-size: 1.2em;
+        padding: 15px 0;
+    }
+
+    .faq-answer.open {
+        max-height: 300px; /* Ajustar si el contenido es más largo en desktop */
+        padding: 10px 20px 25px;
+    }
+
+    .support-contact-sections {
+        flex-direction: row; /* En línea para desktop */
+        justify-content: center; /* Centra las columnas */
+        align-items: flex-start; /* Alinea los ítems al inicio */
+        gap: 40px; /* Más espacio entre columnas */
+    }
+
+    .whatsapp-support,
+    .on-site-support {
+        flex: 1; /* Permite que ocupen el mismo espacio */
+        max-width: 400px; /* Ancho máximo para cada columna */
+        padding: 30px;
+    }
+
+    .whatsapp-support h3,
+    .on-site-support h3 {
+        font-size: 1.8em;
     }
 
      

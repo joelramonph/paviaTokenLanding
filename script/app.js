@@ -89,3 +89,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // Llama la función una vez al cargar para establecer el color inicial
     updateLineColor();
 });
+
+// Script para la funcionalidad de Acordeón en FAQ
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+
+            // Toggle la clase 'active' en el botón de la pregunta
+            question.classList.toggle('active');
+            // Toggle la clase 'open' en la respuesta
+            faqAnswer.classList.toggle('open');
+
+            // Ajustar la altura máxima para la transición
+            if (faqAnswer.classList.contains('open')) {
+                // Si se está abriendo, establece la altura en scrollHeight
+                // Esto permite que la transición de max-height funcione correctamente
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+            } else {
+                // Si se está cerrando, vuelve a 0
+                faqAnswer.style.maxHeight = "0";
+            }
+
+            // Cierra otras preguntas si están abiertas (opcional)
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== question) {
+                    const otherFaqItem = otherQuestion.closest('.faq-item');
+                    const otherFaqAnswer = otherFaqItem.querySelector('.faq-answer');
+
+                    if (otherQuestion.classList.contains('active')) {
+                        otherQuestion.classList.remove('active');
+                        otherFaqAnswer.classList.remove('open');
+                        otherFaqAnswer.style.maxHeight = "0";
+                    }
+                }
+            });
+        });
+    });
+});
