@@ -22,6 +22,7 @@ html {
 }
 
 body {
+    padding-top: 60px;
     font-family: 'Arial', sans-serif;
     color: var(--color-dark-gray);
     background-color: var(--color-white);
@@ -49,6 +50,12 @@ main {
     top: 0;
     left: 0;
     z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+}
+
+.logo-img {
+    height: 50px; /* O el tamaño que necesites */
+    width: auto;
+    vertical-align: middle;
 }
 
 .logo-container {
@@ -231,7 +238,7 @@ main {
 .container {
     max-width: 90%; /* Limita el ancho del contenido a 90% en móviles */
     margin: 0 auto; /* Centra el contenedor */
-    padding: 0 15px; /* Padding interno para que el texto no toque los bordes */
+    padding: 0 20px; /* Padding interno para que el texto no toque los bordes */
     /* border: 1px solid green; /* Para depuración: ver el límite del container */
 }
 
@@ -1091,30 +1098,125 @@ main {
     }
 
      
+/* --- Estilos para la Página de Términos de Uso --- */
+.terms-section {
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-gray);
+    padding: 80px 0; /* Más padding para páginas de contenido */
+    text-align: center;
+}
 
-    
+.terms-section .section-title {
+    font-size: 2.5em; /* Ajusta el tamaño del título principal */
+    margin-bottom: 50px;
+    color: var(--color-primary-purple);
+}
 
-    
+.terms-content {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 800px; 
+    margin: 0 auto 40px auto; 
+    text-align: left; 
+}
 
-     
+.term-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-light-purple);
+}
 
-    
+.term-item:last-child {
+    border-bottom: none; 
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
-     
+.term-item h2 {
+    font-size: 1.6em;
+    color: var(--color-secondary-purple);
+    margin-bottom: 15px;
+}
 
-    
+.term-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
-    
-    
-    
-   
-    
-  
+.term-item ul {
+    list-style: none; /* Elimina viñetas por defecto */
+    padding: 0;
+    margin: 0;
+}
 
+.term-item ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    padding-left: 25px; 
+    position: relative;
+}
 
+.term-item ul li::before {
+    content: '✅'; 
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-purple);
+    font-weight: bold;
+    top: 0;
+}
 
-    
+/* Ajuste para los items con 📌 */
+.term-item ul li:nth-child(n+4)::before { /* Asumiendo que los 📌 empiezan en el 4to li */
+    content: '📌';
+    color: var(--color-orange); 
+}
 
+.terms-footer-text,
+.terms-footer-contact {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 30px;
+    font-weight: bold;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terms-footer-contact {
+    color: var(--color-secondary-purple);
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* MEDIA QUERY para Desktop (dentro de @media (min-width: 768px) { ... }) */
+@media (min-width: 768px) {
+    .terms-section .section-title {
+        font-size: 3em;
+    }
+
+    .terms-content {
+        padding: 50px;
+        max-width: 900px;
+    }
+
+    .term-item h2 {
+        font-size: 1.8em;
+    }
+
+    .term-item p,
+    .term-item ul li {
+        font-size: 1.05em;
+    }
+
+    .terms-footer-text,
+    .terms-footer-contact {
+        font-size: 1.2em;
+    }
+}
 
     /* Estilos del FOOTER para Escritorio */
     .main-footer {
