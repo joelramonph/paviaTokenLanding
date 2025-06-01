@@ -37,3 +37,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// Script para la animación de la línea de cambio de color en la sección "Activar Token"
+
+document.addEventListener('DOMContentLoaded', () => {
+    const colorChangeLine = document.querySelector('.color-change-line');
+    const roadmapSection = document.getElementById('activar');
+
+    if (!colorChangeLine || !roadmapSection) {
+        console.warn('Elementos para la animación de línea no encontrados.');
+        return;
+    }
+
+    // Función para cambiar la tonalidad de la línea
+    function updateLineColor() {
+        const sectionRect = roadmapSection.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Calcular el progreso del scroll dentro de la sección
+        // Cuando la sección empieza a entrar en el viewport (sectionRect.top < viewportHeight)
+        // y cuando la sección sale del viewport (sectionRect.bottom > 0)
+        let scrollProgress = 0;
+
+        if (sectionRect.top < viewportHeight && sectionRect.bottom > 0) {
+            // Calcular qué tan lejos ha entrado la sección en el viewport
+            // 0 cuando la parte superior de la sección está en la parte inferior del viewport
+            // 1 cuando la parte inferior de la sección está en la parte superior del viewport
+            scrollProgress = (viewportHeight - sectionRect.top) / (viewportHeight + sectionRect.height);
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress)); // Clampear entre 0 y 1
+        }
+
+        // Mapear el progreso del scroll a un valor HSL (Hue, Saturation, Lightness)
+        // Aquí un ejemplo de cambio de tonalidad (Hue)
+        // Puedes ajustar los valores de inicio y fin de H (Hue) para diferentes colores
+        // Por ejemplo, de púrpura (aprox 270) a un azul (aprox 240) o rojo (aprox 0)
+        const startHue = 270; // Púrpura
+        const endHue = 240;   // Azul
+        const hue = startHue - (startHue - endHue) * scrollProgress;
+
+        // Puedes también variar la saturación o la luminosidad
+        const saturation = 70 + (30 * scrollProgress); // De 70% a 100%
+        const lightness = 60 - (10 * scrollProgress);  // De 60% a 50%
+
+        colorChangeLine.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+    // Escucha el evento de scroll para actualizar el color
+    window.addEventListener('scroll', updateLineColor);
+
+    // Llama la función una vez al cargar para establecer el color inicial
+    updateLineColor();
+});

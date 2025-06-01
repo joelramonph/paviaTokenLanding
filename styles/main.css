@@ -276,9 +276,9 @@ main {
 
 
 
-/* Colores para tus placeholders temporales */
-.placeholder-section:nth-of-type(1) { background-color: var(--color-light-gray); } /* Equipos */
-.placeholder-section:nth-of-type(2) { background-color: var(--color-secondary-purple); color: var(--color-white);} /* Activar */
+
+
+
 .placeholder-section:nth-of-type(3) { background-color: var(--color-primary-purple); color: var(--color-white);} /* Contacto */
 /* --- Estilos para la Sección "Equipos" (Mobile-First) --- */
 .teams-section {
@@ -344,6 +344,129 @@ main {
 
 .pavia-interaction strong {
     color: var(--color-primary-purple); /* Color más fuerte para la interacción */
+}
+
+
+/* --- Estilos para la Sección "Activar Pavia Token" (Mobile-First) --- */
+.roadmap-section {
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
+    padding: 60px 0;
+    position: relative; /* Para posicionar la línea de cambio de color */
+    overflow-x: hidden; /* Evita scroll horizontal si la línea se desborda */
+}
+
+.roadmap-section .section-title {
+    margin-bottom: 50px;
+}
+
+/* Línea de cambio de color a la izquierda */
+.color-change-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px; /* Ancho de la línea */
+    height: 100%;
+    background-color: var(--color-light-purple); /* Tonalidad inicial */
+    z-index: 0; /* Asegura que esté detrás del contenido */
+    transition: background-color 0.3s ease; /* Transición suave del color */
+}
+
+/* Estilos del Contenedor de la Línea de Tiempo */
+.roadmap-timeline {
+    position: relative;
+    padding: 0 15px; /* Espacio a los lados */
+    max-width: 600px; /* Ancho máximo para la línea de tiempo en móvil */
+    margin: 0 auto;
+}
+
+/* Línea central del mapa de ruta para móvil (oculta, usaremos los bordes de las tarjetas) */
+.roadmap-timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--color-light-purple);
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Centra la línea */
+    margin-left: -2px;
+    display: none; /* Por defecto oculto en móvil, la activaremos en desktop */
+}
+
+/* Estilos de cada Fase (Mobile-First - Apiladas) */
+.roadmap-phase {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 20px; /* Espacio para el icono y botón */
+}
+
+.roadmap-phase:last-child {
+    margin-bottom: 0;
+}
+
+.phase-bubble {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos de la burbuja */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.phase-button {
+    background-color: var(--color-primary-purple);
+    color: var(--color-white);
+    border: none;
+    border-radius: 20px; /* Bordes redondeados para simular un botón */
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: default; /* No es un botón clickable */
+    margin-bottom: 5px; /* Espacio entre el botón y el icono */
+}
+
+.phase-icon {
+    font-size: 2.2em; /* Tamaño del icono */
+    color: var(--color-secondary-purple);
+}
+
+.phase-content {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light-purple);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: left; /* Alinea el texto del contenido */
+}
+
+.phase-content h3 {
+    font-size: 1.3em;
+    color: var(--color-primary-purple);
+    margin-bottom: 10px;
+}
+
+.phase-content ul {
+    list-style: none; /* Elimina viñetas */
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.phase-content ul li {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.phase-content ul li strong {
+    color: var(--color-dark-gray);
+}
+
+.phase-tip {
+    font-size: 0.85em;
+    color: var(--color-dark-gray);
+    font-style: italic;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--color-light-purple); /* Separador para la nota */
 }
 
 /* --- Estilos para el FOOTER (Mobile-First) --- */
@@ -568,7 +691,7 @@ main {
         padding: 30px;
     }
 
-    
+
     .team-image {
         width: 180px; 
         height: 180px;
@@ -590,6 +713,157 @@ main {
          margin-top: auto;
          width: 100%;
     }
+
+
+    /* Estilos de la Sección "Activar Pavia Token" para Escritorio */
+    /* Estilos de la Sección "Activar Pavia Token" para Escritorio */
+    .roadmap-section {
+        padding: 80px 0;
+        overflow: hidden; /* Importante para que la línea de la izquierda no cause scroll horizontal */
+    }
+
+    .roadmap-timeline {
+        max-width: 900px; /* Ancho mayor para el mapa de ruta en desktop */
+        margin: 0 auto; /* Centra el timeline completo */
+        padding: 0;
+        position: relative; /* Asegura que la línea central esté posicionada respecto a este */
+    }
+
+    /* Línea central del mapa de ruta en desktop */
+    .roadmap-timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background-color: var(--color-light-purple); /* Color de la línea central */
+        top: 0;
+        bottom: 0;
+        left: 50%; /* Centra la línea verticalmente */
+        margin-left: -2px; /* Ajuste para centrar el grosor de la línea */
+        display: block; /* Visible en desktop */
+        z-index: 0; /* Asegura que la línea esté detrás de las burbujas */
+    }
+
+    .roadmap-phase {
+        margin-bottom: 60px; /* Espacio entre fases en desktop */
+        position: relative;
+        display: flex; /* Contenedor flex para cada fase */
+        align-items: center; /* Alinea los elementos de la fase verticalmente */
+        width: 100%; /* Ocupa todo el ancho del timeline */
+        box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+    }
+
+    .roadmap-phase:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Burbuja de fase (círculo) */
+    .phase-bubble {
+        flex-shrink: 0; /* Evita que la burbuja se encoja */
+        width: 80px; /* Ancho fijo para la burbuja */
+        height: 80px; /* Altura fija para la burbuja */
+        background-color: var(--color-white); /* Fondo de la burbuja */
+        border: 4px solid var(--color-primary-purple); /* Borde de la burbuja */
+        border-radius: 50%; /* Circular */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1; /* Asegura que la burbuja esté por encima de la línea central */
+    }
+
+    .phase-button {
+        padding: 5px 10px;
+        font-size: 0.8em;
+        border-radius: 15px;
+        margin-bottom: 0;
+    }
+
+    .phase-icon {
+        font-size: 1.8em;
+    }
+
+    /* Contenido de la fase (la "tarjeta") */
+    .phase-content {
+        flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+        width: calc(50% - 60px); /* Aproximadamente la mitad del ancho, menos el espacio para la burbuja y el margen */
+        max-width: 400px; /* Asegura que el contenido no sea demasiado ancho */
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-white); /* Asegura el fondo de la tarjeta */
+        border: 1px solid var(--color-light-purple); /* Borde suave para la tarjeta */
+        border-radius: 8px; /* Bordes redondeados para la tarjeta */
+        text-align: left;
+    }
+
+    /* Alineación de las fases a la izquierda */
+    .roadmap-phase.left-align {
+        flex-direction: row-reverse; /* Contenido a la derecha, burbuja a la izquierda */
+        /* No necesitamos justify-content aquí */
+    }
+
+    .roadmap-phase.left-align .phase-bubble {
+        margin-right: -42px; /* Ajuste para superponer la burbuja en la línea central */
+        margin-left: 0; /* Aseguramos que no tenga margen izquierdo */
+    }
+
+    .roadmap-phase.left-align .phase-content {
+        margin-left: 60px; /* Espacio entre burbuja y contenido */
+        margin-right: 0; /* Aseguramos que no tenga margen derecho */
+    }
+
+    /* Alineación de las fases a la derecha */
+    .roadmap-phase.right-align {
+        flex-direction: row; /* Contenido a la izquierda, burbuja a la derecha */
+        /* No necesitamos justify-content aquí */
+    }
+
+    .roadmap-phase.right-align .phase-bubble {
+        margin-left: -42px; /* Ajuste para superponer la burbuja en la línea central */
+        margin-right: 0; /* Aseguramos que no tenga margen derecho */
+    }
+
+    .roadmap-phase.right-align .phase-content {
+        margin-right: 60px; /* Espacio entre burbuja y contenido */
+        margin-left: 0; /* Aseguramos que no tenga margen izquierdo */
+    }
+
+    .phase-content h3 {
+        font-size: 1.5em;
+    }
+
+    .phase-content ul li {
+        font-size: 1em;
+    }
+
+    .phase-tip {
+        font-size: 0.9em;
+    }
+
+     
+
+    
+
+    
+
+     
+
+    
+
+     
+
+    
+
+    
+    
+    
+   
+    
+  
+
+
+
+    
 
 
     /* Estilos del FOOTER para Escritorio */
