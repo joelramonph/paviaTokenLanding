@@ -562,12 +562,13 @@ main {
     .team-card {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start
+        justify-content: flex-start;
         flex: 1 1 calc(33.33% - 40px); 
         max-width: 380px; 
         padding: 30px;
     }
 
+    
     .team-image {
         width: 180px; 
         height: 180px;
